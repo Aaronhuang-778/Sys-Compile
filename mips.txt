@@ -1,0 +1,249 @@
+.data
+GLOBALVAR0: .word 0
+String0: .asciiz ", "
+String1: .asciiz ", "
+String2: .asciiz "\n"
+.text
+move $fp, $sp
+la $s1, GLOBALVAR0
+sw $s1, -4($fp)
+lw $s1, ($s1)
+li $s2, 4
+lw $s0, -4($fp)
+sw $s2, ($s0)
+ move $fp, $sp
+ j main
+hhh:
+ sw $ra, -4($fp)
+lw $s2, -8($fp)
+lw $s3, -8($fp)
+mult $s2, $s3
+mflo $s1
+sw $s1, -12($fp)
+lw $s2, -8($fp)
+li $s3, 1
+seq $s1, $s2, $s3
+sw $s1, -16($fp)
+beqz $s1, Label0
+li $s1, 1
+ sw $s1, 4($fp)
+ lw $ra, -4($fp)
+ add $sp, $fp, 4
+ lw $fp, ($fp)
+ move $sp, $fp
+ jr $ra
+Label0:
+lw $s2, -8($fp)
+li $s3, 2
+seq $s1, $s2, $s3
+sw $s1, -20($fp)
+beqz $s1, Label1
+li $s1, 2
+ sw $s1, 4($fp)
+ lw $ra, -4($fp)
+ add $sp, $fp, 4
+ lw $fp, ($fp)
+ move $sp, $fp
+ jr $ra
+Label1:
+lw $s2, -12($fp)
+lw $s3, -12($fp)
+mult $s2, $s3
+mflo $s1
+sw $s1, -24($fp)
+move $s2,$s1
+li $s4, -858993459
+mult $s2, $s4
+mfhi $s3
+addu $s1, $s2, $s3
+sra $s1, $s1, 3
+sge $s3, $s2, 0
+subiu $s3, $s3, 1
+subu $s1, $s1, $s3
+xori $s1, $s1, 0
+subiu $s1, $s1, 0
+li $s4, 10
+mult $s1, $s4
+mflo $s3
+subu $s1, $s2, $s3
+sw $s1, -28($fp)
+move $s2,$s1
+sw $s2, -12($fp)
+lw $s2, -8($fp)
+subiu $s1, $s2, 1
+sw $s1, -32($fp)
+sub $sp, $sp, 36
+sub $sp, $sp, 4
+sw $fp, ($sp)
+lw $s1, -32($fp)
+sw $s1, -8($sp)
+move $fp, $sp
+jal hhh
+lw $s2, -8($fp)
+subiu $s1, $s2, 2
+sw $s1, -40($fp)
+sub $sp, $sp, 44
+sub $sp, $sp, 4
+sw $fp, ($sp)
+lw $s1, -40($fp)
+sw $s1, -8($sp)
+move $fp, $sp
+jal hhh
+lw $s2, -36($fp)
+lw $s3, -44($fp)
+addu $s1, $s2, $s3
+sw $s1, -48($fp)
+ sw $s1, 4($fp)
+ lw $ra, -4($fp)
+ add $sp, $fp, 4
+ lw $fp, ($fp)
+ move $sp, $fp
+ jr $ra
+ lw $ra, -4($fp)
+ add $sp, $fp, 4
+ lw $fp, ($fp)
+ move $sp, $fp
+ jr $ra
+main:
+ sw $ra, -4($fp)
+li $s2, 2
+sw $s2, -8($fp)
+li $s2, 5
+sw $s2, -12($fp)
+ li $v0, 5
+ syscall
+ sw $v0, -8($fp)
+ li $v0, 5
+ syscall
+ sw $v0, -12($fp)
+li $s2, 41461
+sw $s2, -16($fp)
+li $s3, -1840700269
+mult $s2, $s3
+mfhi $s3
+addu $s1, $s2, $s3
+sra $s1, $s1, 5
+sge $s3, $s2, 0
+subiu $s3, $s3, 1
+subu $s1, $s1, $s3
+xori $s1, $s1, 0
+subiu $s1, $s1, 0
+sw $s1, -20($fp)
+move $s2,$s1
+li $s3, 56
+mult $s2, $s3
+mflo $s1
+sw $s1, -24($fp)
+sub $sp, $sp, 28
+sub $sp, $sp, 4
+sw $fp, ($sp)
+li $s1, 3
+sw $s1, -8($sp)
+move $fp, $sp
+jal hhh
+sub $sp, $sp, 32
+sub $sp, $sp, 4
+sw $fp, ($sp)
+lw $s1, -28($fp)
+sw $s1, -8($sp)
+move $fp, $sp
+jal hhh
+lw $s2, -24($fp)
+lw $s3, -32($fp)
+subu $s1, $s2, $s3
+sw $s1, -36($fp)
+li $s2, 3
+sw $s2, -40($fp)
+li $s2, 44
+sw $s2, -44($fp)
+li $s3, 36
+mult $s2, $s3
+mflo $s1
+sw $s1, -48($fp)
+move $s2,$s1
+subiu $s1, $s2, 53
+sw $s1, -52($fp)
+move $s2,$s1
+li $s3, 6
+mult $s2, $s3
+mflo $s1
+sw $s1, -56($fp)
+lw $s2, -40($fp)
+lw $s3, -56($fp)
+subu $s1, $s2, $s3
+sw $s1, -60($fp)
+li $s2, 2520
+sw $s2, -64($fp)
+li $s3, -1061109567
+mult $s2, $s3
+mfhi $s3
+addu $s1, $s2, $s3
+sra $s1, $s1, 6
+sge $s3, $s2, 0
+subiu $s3, $s3, 1
+subu $s1, $s1, $s3
+xori $s1, $s1, 0
+subiu $s1, $s1, 0
+sw $s1, -68($fp)
+move $s2,$s1
+subiu $s1, $s2, 56
+sw $s1, -72($fp)
+li $s2, 1960
+sw $s2, -76($fp)
+srl $s1, $s2, 2
+sw $s1, -80($fp)
+lw $s2, -72($fp)
+lw $s3, -80($fp)
+addu $s1, $s2, $s3
+sw $s1, -84($fp)
+move $s2,$s1
+subiu $s1, $s2, 9
+sw $s1, -88($fp)
+move $s2,$s1
+sll $s1, $s2, 1
+sw $s1, -92($fp)
+lw $s2, -60($fp)
+lw $s3, -92($fp)
+subu $s1, $s2, $s3
+sw $s1, -96($fp)
+lw $s2, -36($fp)
+lw $s3, -96($fp)
+addu $s1, $s2, $s3
+sw $s1, -12($fp)
+li $s2, -5
+sw $s2, -100($fp)
+li $s2, 0
+lw $s3, -100($fp)
+subu $s1, $s2, $s3
+sw $s1, -104($fp)
+li $s2, 10
+sw $s2, -108($fp)
+lw $s1, -8($fp)
+ move $a0, $s1
+ li $v0, 1
+ syscall
+ la $a0, String0
+ li $v0, 4
+ syscall
+lw $s1, -12($fp)
+ move $a0, $s1
+ li $v0, 1
+ syscall
+ la $a0, String1
+ li $v0, 4
+ syscall
+lw $s1, -104($fp)
+ move $a0, $s1
+ li $v0, 1
+ syscall
+ la $a0, String2
+ li $v0, 4
+ syscall
+ move $sp, $fp
+ j end
+ lw $ra, -4($fp)
+ add $sp, $fp, 4
+ lw $fp, ($fp)
+ move $sp, $fp
+ jr $ra
+end:

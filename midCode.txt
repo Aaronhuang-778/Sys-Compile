@@ -1,0 +1,110 @@
+LA	*0	GLOBALVAR0
+
+ASSIGN	*0=	4
+
+DEFINE	hhh	#1
+
+MUL	#3=	#1*	#1
+
+EQ	#4=(	#1==	1)
+
+BZ	#4	Label0
+
+RET	1
+
+Label0:
+
+EQ	#5=(	#1==	2)
+
+BZ	#5	Label1
+
+RET	2
+
+Label1:
+
+MUL	#6=	#3*	#3
+
+MOD	#7=	#6%	10
+
+ASSIGN	#3=	#7
+
+MINUI	#8=	#1-	1
+
+Call	hhh		#8return (	#9)
+
+MINUI	#10=	#1-	2
+
+Call	hhh		#10return (	#11)
+
+ADD	#12=	#9+	#11
+
+RET	#12
+
+EXIT
+
+DEFINE	main
+
+ASSIGN	#13=	2
+
+ASSIGN	#14=	5
+
+GETINT	#13
+
+GETINT	#14
+
+ASSIGN	#15=	41461
+
+DIV	#16=	#15/	56
+
+MUL	#17=	#16*	56
+
+Call	hhh		3return (	#18)
+
+Call	hhh		#18return (	#19)
+
+MINU	#20=	#17-	#19
+
+ASSIGN	#21=	3
+
+ASSIGN	#22=	44
+
+MUL	#23=	#22*	36
+
+MINUI	#25=	#23-	53
+
+MUL	#26=	#25*	6
+
+MINU	#27=	#21-	#26
+
+ASSIGN	#28=	2520
+
+DIV	#29=	#28/	85
+
+MINUI	#30=	#29-	56
+
+ASSIGN	#31=	1960
+
+SHR	#32=	#31>>	2
+
+ADD	#33=	#30+	#32
+
+MINUI	#34=	#33-	9
+
+SHL	#35=	#34<<	1
+
+MINU	#36=	#27-	#35
+
+ADD	#14=	#20+	#36
+
+ASSIGN	#39=	-5
+
+MINU	#40=	0-	#39
+
+ASSIGN	#41=	10
+
+PRINT	"%d, %d, %d\n"	#13,	#14,	#40
+
+RET	0
+
+EXIT
+
